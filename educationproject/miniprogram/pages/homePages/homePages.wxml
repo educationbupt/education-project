@@ -1,0 +1,36 @@
+<!--pages/homePages/homePages.wxml-->
+<!--
+搜索官方链接：https://developers.weixin.qq.com/miniprogram/dev/component/input.html
+借鉴的搜索写法：https://blog.csdn.net/qq_36538012/article/details/80363781
+-->
+<swiper
+  indicator-dots="true"
+  autoplay="true"
+  interval="3000"
+  duration="1000"
+>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" height="150" width="500rpx"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+  <view class='page_row' bindtap="suo">  
+      <view class="search">  
+        <view class="df search_arr">  
+          <icon class="searchcion" size='20' type='search'></icon>  
+          <input class="" disabled placeholder="请输入关键字" value="{{searchValue}}"/>  
+        </view>  
+      </view>  
+      <view class='sousuo'>搜索</view>  
+    </view>  
+
+
+
+<view class="massage" wx:for="{{newMassage}}">
+  <view>{{item.content}}</view>
+  <view>
+    <image src="{{item.picture}}"></image>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/homePages/homePages",
+    "pages/index/index",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "文思海辉",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#268dcd",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "主页",
+        "pagePath": "pages/homePages/homePages",
+        "iconPath": "images/home.jpg",
+        "selectedIconPath": "images/home.jpg"
+      },
+      {
+        "text": "课程",
+        "pagePath": "pages/chooseLib/chooseLib",
+        "iconPath": "images/class.jpg",
+        "selectedIconPath": "images/class.jpg"
+      },
+      {
+        "text": "圈子",
+        "pagePath": "pages/databaseGuide/databaseGuide",
+        "iconPath": "images/download.jpg",
+        "selectedIconPath": "images/download.jpg"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/me.jpg",
+        "selectedIconPath": "images/me.jpg"
+      }
+    ]
+  }
+}
