@@ -1,8 +1,21 @@
 <!--pages/databaseGuide/databaseGuide.wxml-->
-<view class="container">
-
-  <!-- 导航 -->
-  <view class="list">
+<view class="container" onload="refresh()">
+ <view class="list">
+      <!--留言-->
+    <view class="send-box">
+          <input bindinput="changeInputValue" class="input" type="text" value="{{inputVal}}" placeholder="请输入对课程的感受" placeholder-class="place-input"/>
+          <button size="mini" type="primary" wx:if="{{msgData.length==0}}" bindtap="addMsg">添加</button>
+          <button size="mini" type="primary" wx:if="{{msgData.length!=0}}" bindtap="updMsg">添加</button>
+      </view>
+      <!--留言列表-->
+      <text class="msg-info" wx:if="{{msgData.length==0}}">暂时无留言，欢迎留言~</text>
+      <view class="list-view">
+          <view class="item" wx:for="{{msgData}}" wx:key="{{index}}">
+            <text class="text1">{{item.msg}}</text>
+            <!--button size="mini" plain class="close-btn" type="default">删除</button-->
+            <icon type="cancel" bindtap="DelMsg" data-index="{{index}}" class="close-btn" />
+          </view>
+      </view>
     <view class="list-item">
       <text class="request-text">数据库指引</text>
     </view>
@@ -17,6 +30,10 @@
     </view>
   </view>
 
+
+  <!-- 导航 -->
+
+ 
   <!-- 快速操作数据库指引 -->
 
   <!-- 简介 -->

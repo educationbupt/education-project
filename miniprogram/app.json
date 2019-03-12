@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/homePages/homePages",
+    "pages/home/home",
+    "pages/publish/publish",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -36,7 +38,7 @@
       },
       {
         "text": "圈子",
-        "pagePath": "pages/databaseGuide/databaseGuide",
+        "pagePath": "pages/home/home",
         "iconPath": "images/download.jpg",
         "selectedIconPath": "images/download.jpg"
       },

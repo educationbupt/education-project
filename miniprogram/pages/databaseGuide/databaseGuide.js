@@ -3,22 +3,160 @@
 const app = getApp()
 
 Page({
-
   data: {
     step: 1,
     counterId: '',
     openid: '',
-    count: null,
+    count: '',
     queryResult: '',
+    msgData: [] ,
+    otherData: []
+  },
+  changeInputValue(ev) {
+    this.setData({
+      inputVal: ev.detail.value
+    })
+  },
+  //删除留言
+  DelMsg(ev) {
+    const db = wx.cloud.database()
+    var n = ev.target.dataset.index;
+
+    var list = this.data.msgData;
+    list.splice(n, 1);
+
+    this.setData({
+      msgData: list
+    });
+    db.collection('msgData').doc(this.data._openid).update({
+      data: {
+        msgData: list,
+      },
+    })
+  },
+  //添加留言
+  addMsg() {
+    var list = this.data.msgData;
+    list.push({
+      msg: this.data.inputVal
+    });
+    //更新
+    this.setData({
+      msgData: list,
+      inputVal: ''
+    });
+    const db = wx.cloud.database()
+    db.collection('msgData').add({
+      data: {
+        msgData: list,
+      },
+    })
+    console.log(list)
+    console.log(this.data.msgData)
   },
 
+  updMsg() {
+    var list = this.data.msgData;
+    list.push({
+      msg: this.data.inputVal
+    });
+    //更新
+    this.setData({
+      msgData: list,
+      inputVal: ''
+    });
+    const db = wx.cloud.database()
+    db.collection('msgData').doc(this.data._openid).update({
+      data: {
+        msgData: list,
+      },
+    })
+  },
+
+onShow()
+{
+ // console.log('1')
+ let that  = this
+  const db = wx.cloud.database()
+  console.log(this.data.msgData)
+  var temp=[]
+  db.collection('msgData').get(
+  {
+    success(res) {
+      console.log('22222222')
+      temp = res.data
+      console.log(temp[0].msgData)
+      //this.data.msgData = temp[0].msgData
+      var tmp = temp[0].msgData
+      console.log(tmp)
+      //this.data.msgData = tmp
+      console.log(that.data.msgData)
+      console.log('成功')
+      that.setData({
+        msgData: temp[0].msgData
+      })
+      // this.setData({
+      //   //msgData: []
+      // })
+      // console.log('33333333333333333333333')
+      // console.log(this.data.msgData)
+      
+      // this.setData({
+      //   msgData: temp[0].msgData
+      // })
+      // console.log('res.data')
+      // for (var i = 0; i < temp.length; i++) {
+      //   console.log(temp[i])
+      //   console.log(this.data._openid)
+      //   //this.data.msgData = temp[i].msgData
+      //   console.log('相等')
+      //   if(temp[i]._openid==this.data._openid)
+      //   {
+      //     console.log('相等')
+      //     this.data.msgData = temp[i].msgData
+      //   }
+      //   else
+      //   {
+      //     console.log('不相等')
+      //     var list = this.data.otherData;
+      //     list.push({
+      //       msg: temp[i].msgData
+      //     });
+      //     this.setData({
+      //       otherData: list,
+      //       inputVal: ''
+      //     });
+      //     //otherData=temp[i].msgData
+      //   }
+      // }
+      //console.log(temp[0])
+    }
+  },)
+  
+  console.log(this.data.msgData)
+  console.log("结束")
+
+},
+
   onLoad: function (options) {
+    // const db = wx.cloud.database()
+    // db.collection('msgData').get(
+    //   {
+    //     success(res)
+    //     {
+    //       msgData=res.msgData
+    //       console.log(res.data)
+    //     }
+    //   }
+    // )
     if (app.globalData.openid) {
       this.setData({
         openid: app.globalData.openid
       })
     }
   },
+
+  
 
   onAdd: function () {
     const db = wx.cloud.database()
