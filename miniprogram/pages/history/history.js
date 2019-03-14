@@ -36,7 +36,7 @@ Page({
     try {
       db.collection('topic')
         .where({
-          _openid: 'oSly05H9VAU2F9MdHl0DxvU1KwZE', // 填入当前用户 openid
+          _openid: '****************************', // 填入当前用户 openid
         })
         .limit(that.data.pageSize) // 限制返回数量为 10 条
         .orderBy('date', 'desc')
@@ -124,7 +124,7 @@ Page({
         const db = wx.cloud.database();
         db.collection('topic')
           .where({
-            _openid: 'oSly05H9VAU2F9MdHl0DxvU1KwZE', // 填入当前用户 openid
+            _openid: '****************************', // 填入当前用户 openid
           })
           .skip(5)
           .limit(that.data.pageSize) // 限制返回数量为 10 条

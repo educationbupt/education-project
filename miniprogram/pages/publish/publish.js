@@ -10,6 +10,7 @@ Page({
     images: [],
     user: {},
     isLike: false,
+    msgData: [],
   },
   /**
    * 获取填写的内容
@@ -76,6 +77,7 @@ Page({
         images: that.data.images,
         user: that.data.user,
         isLike: that.data.isLike,
+        msgData:[]
       },
       success: function(res) {
         // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id

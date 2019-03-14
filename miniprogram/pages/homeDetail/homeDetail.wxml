@@ -1,5 +1,5 @@
 <!--miniprogram/pages/homeDetail/homeDetail.wxml-->
-<view class='container' bindtap='onItemClick'>
+<view class='container'>
   <view class='container-content'>
     <view class='user-info'>
       <image class='user-head' src='{{topic.user.avatarUrl}}' mode='aspectFill'></image>
@@ -33,8 +33,9 @@
 
     </view>
   </view>
+  
   <!-- <view class='line'>文末</view> -->
-  <view class='like-container' bindtap='onLikeClick'>
+  <!-- <view class='like-container' bindtap='onLikeClick'>
     <view class='like-container' wx:if='{{isLike}}'>
       <image class='like-icon' src='../../images/topic-detail/like.png'></image>
       <text class='like-text'>已喜欢</text>
@@ -44,6 +45,29 @@
       <text class='like-text'>喜欢</text>
     </view>
 
-  </view>
+  </view> -->
 
+</view>
+
+
+<view class="container">
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+<view class='container_down'>
+<view class="send-box">
+          <input bindinput="changeInputValue" class="input" type="text" value="{{inputVal}}" placeholder="在这里回复些什么吧" placeholder-class="place-input"/>
+          <button size="mini" type="primary" bindtap="updMsg">添加</button>
+</view>
+<view class="container">
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+</view>
+<view class="list-view">
+        <view class="item" wx:for="{{msgData}}" wx:key="{{index}}">
+          <text class="text1">{{item.msg}}</text>
+          <!--button size="mini" plain class="close-btn" type="default">删除</button-->
+          <!-- <icon type="cancel" bindtap="DelMsg" data-index="{{index}}" class="close-btn" /> -->
+        </view>
 </view>

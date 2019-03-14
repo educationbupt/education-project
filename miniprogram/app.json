@@ -2,6 +2,7 @@
   "pages": [
     "pages/homePages/homePages",
     "pages/home/home",
+    "pages/homeDetail/homeDetail",
     "pages/publish/publish",
     "pages/index/index",
     "pages/userConsole/userConsole",

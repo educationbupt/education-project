@@ -111,3 +111,36 @@
   color: rgb(17, 14, 16);
   font-weight: bold;
 }
+
+.place-input{
+  color: #666;
+}
+
+.list-view{
+  margin: 20px 0 0 0;
+}
+
+.item{
+  overflow: hidden;
+  border-bottom: 1px dashed #E0E3DA;
+  height: 30px;
+  line-height: 30px;
+}
+.text1{
+  float: left;
+}
+
+/* 横着的分割View样式 */
+/*分割线样式*/
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+}
+
+.container_down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 

@@ -8,8 +8,13 @@ Page({
     topic: {},
     id: '',
     isLike: false,
+    msgData: [],
   },
-
+  changeInputValue(ev) {
+    this.setData({
+      inputVal: ev.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -32,6 +37,112 @@ Page({
       }
     })
   },
+  //添加留言
+  addMsg() {
+    var list = this.data.msgData;
+    list.push({
+      msg: this.data.inputVal
+    });
+    //更新
+    this.setData({
+      msgData: list,
+      inputVal: ''
+    });
+    const db = wx.cloud.database()
+    db.collection('topic').doc(this.data.id).add({
+      data: {
+        msgData: list,
+      },
+    })
+    console.log(list)
+    console.log(this.data.msgData)
+  },
+
+  updMsg() {
+    var list = this.data.msgData;
+    list.push({
+      msg: this.data.inputVal
+    });
+    //更新
+    this.setData({
+      msgData: list,
+      inputVal: ''
+    });
+    const db = wx.cloud.database()
+    db.collection('topic').doc(this.data.id).update({
+      data: {
+        msgData: list,
+      },
+    })
+  },
+
+  onShow() {
+    // console.log('1')
+    let that = this
+    const db = wx.cloud.database()
+    console.log(this.data.msgData)
+    var temp = []
+    db.collection('topic').doc(this.data.id).get(
+      {
+        success(res) {
+          console.log('22222222')
+          temp = res.data
+          console.log('temp')
+          console.log(temp)
+          console.log('temp.msgData')
+          console.log(temp.msgData)
+          //this.data.msgData = temp[0].msgData
+          var tmp = temp.msgData
+          console.log(tmp)
+          //this.data.msgData = tmp
+          console.log(that.data.msgData)
+          console.log('成功')
+          that.setData({
+            msgData: temp.msgData
+          })
+          // this.setData({
+          //   //msgData: []
+          // })
+          // console.log('33333333333333333333333')
+          // console.log(this.data.msgData)
+
+          // this.setData({
+          //   msgData: temp[0].msgData
+          // })
+          // console.log('res.data')
+          // for (var i = 0; i < temp.length; i++) {
+          //   console.log(temp[i])
+          //   console.log(this.data._openid)
+          //   //this.data.msgData = temp[i].msgData
+          //   console.log('相等')
+          //   if(temp[i]._openid==this.data._openid)
+          //   {
+          //     console.log('相等')
+          //     this.data.msgData = temp[i].msgData
+          //   }
+          //   else
+          //   {
+          //     console.log('不相等')
+          //     var list = this.data.otherData;
+          //     list.push({
+          //       msg: temp[i].msgData
+          //     });
+          //     this.setData({
+          //       otherData: list,
+          //       inputVal: ''
+          //     });
+          //     //otherData=temp[i].msgData
+          //   }
+          // }
+          //console.log(temp[0])
+        }
+      })
+
+    console.log(this.data.msgData)
+    console.log("结束")
+
+  },
+
   // 预览图片
   previewImg: function(e) {
     //获取当前图片的下标
@@ -111,7 +222,6 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏

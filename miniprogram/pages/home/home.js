@@ -9,6 +9,7 @@ Page({
     pageSize: 5,
     totalCount: 0,
     topics: {},
+    msgData: [],
   },
 
   /**
@@ -29,14 +30,16 @@ Page({
     // 获取总数
     db.collection('topic').count({
       success: function(res) {
+        console.log(res)
         that.data.totalCount = res.total;
+        console.log('数目:'+that.data.totalCount)
       }
     })
     // 获取前十条
     try {
       db.collection('topic')
         .where({
-          _openid: 'oSly*********1KwZE', // 填入当前用户 openid
+          // _openid: '*****************', // 填入当前用户 openid
         })
         .limit(that.data.pageSize) // 限制返回数量为 10 条
         .orderBy('date', 'desc')
