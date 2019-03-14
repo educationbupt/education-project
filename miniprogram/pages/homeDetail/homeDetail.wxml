@@ -55,19 +55,31 @@
   <view class="divLine"></view>
 </view>
 <view class='container_down'>
-<view class="send-box">
-          <input bindinput="changeInputValue" class="input" type="text" value="{{inputVal}}" placeholder="在这里回复些什么吧" placeholder-class="place-input"/>
-          <button size="mini" type="primary" bindtap="updMsg">添加</button>
-</view>
+
 <view class="container">
      <!-- 分割线 -->
   <view class="divLine"></view>
 </view>
 </view>
-<view class="list-view">
-        <view class="item" wx:for="{{msgData}}" wx:key="{{index}}">
-          <text class="text1">{{item.msg}}</text>
-          <!--button size="mini" plain class="close-btn" type="default">删除</button-->
-          <!-- <icon type="cancel" bindtap="DelMsg" data-index="{{index}}" class="close-btn" /> -->
-        </view>
+<view class="massage">
+     <!-- 分割线 -->
+  <view>回复：</view>
+</view>
+<view class="massage" wx:for="{{msgData}}" wx:key="{{index}}">
+<view>
+  <text >{{item.msg}}</text>
+  </view>
+  <!--button size="mini" plain class="close-btn" type="default">删除</button-->
+  <!-- <icon type="cancel" bindtap="DelMsg" data-index="{{index}}" class="close-btn" /> -->
+</view>
+
+<view class="container">
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+  <view class="divLine"></view>
+</view>
+
+<view class="send-box">
+  <input bindinput="changeInputValue" class="massage" type="text" value="{{inputVal}}" placeholder="在这里回复些什么吧" placeholder-class="place-input"/>
+  <button type="primary"  bindtap="addMsg" class='btn1'>添加</button>
 </view>

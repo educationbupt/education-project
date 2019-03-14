@@ -138,9 +138,31 @@
  height: 5rpx;
 }
 
-.container_down {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
 } 
+
+.massage{
+  margin:10px;
+  padding:10px;
+  border-radius:5px;
+  border-top:1px solid #DEDEDE;
+  border-left:1px solid #DEDEDE;
+  box-shadow: 2px 2px 2px #C7C7C7;
+}
+
+.btn1 {
+  width: 80%;
+  margin-top: 20rpx;
+  background-color: burlywood;
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}

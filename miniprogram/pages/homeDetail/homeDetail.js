@@ -100,41 +100,6 @@ Page({
           that.setData({
             msgData: temp.msgData
           })
-          // this.setData({
-          //   //msgData: []
-          // })
-          // console.log('33333333333333333333333')
-          // console.log(this.data.msgData)
-
-          // this.setData({
-          //   msgData: temp[0].msgData
-          // })
-          // console.log('res.data')
-          // for (var i = 0; i < temp.length; i++) {
-          //   console.log(temp[i])
-          //   console.log(this.data._openid)
-          //   //this.data.msgData = temp[i].msgData
-          //   console.log('相等')
-          //   if(temp[i]._openid==this.data._openid)
-          //   {
-          //     console.log('相等')
-          //     this.data.msgData = temp[i].msgData
-          //   }
-          //   else
-          //   {
-          //     console.log('不相等')
-          //     var list = this.data.otherData;
-          //     list.push({
-          //       msg: temp[i].msgData
-          //     });
-          //     this.setData({
-          //       otherData: list,
-          //       inputVal: ''
-          //     });
-          //     //otherData=temp[i].msgData
-          //   }
-          // }
-          //console.log(temp[0])
         }
       })
 
