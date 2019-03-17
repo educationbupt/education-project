@@ -61,10 +61,21 @@
   <view class="divLine"></view>
 </view>
 </view>
-<view class="massage">
+
+<view class="container">
      <!-- 分割线 -->
-  <view>回复：</view>
+  <view>回复区</view>
 </view>
+
+<view class="container">
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+<view class="container">
+     <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+
 <view class="massage" wx:for="{{msgData}}" wx:key="{{index}}">
 <view>
   <text >{{item.msg}}</text>
@@ -80,6 +91,6 @@
 </view>
 
 <view class="send-box">
-  <input bindinput="changeInputValue" class="massage" type="text" value="{{inputVal}}" placeholder="在这里回复些什么吧" placeholder-class="place-input"/>
-  <button type="primary"  bindtap="addMsg" class='btn1'>添加</button>
+  <input bindinput="changeInputValue" class="massage" type="text" value="{{inputVal}}" placeholder="点击此处编辑回复" placeholder-class="place-input"/>
+  <button type="primary"  bindtap="updMsg" class='btn1'>确认添加</button>
 </view>
